@@ -922,9 +922,9 @@ function getPartScore(partQuestions) {
 }
 
 function partBadge(ratio) {
-  if (ratio >= 0.85) return { label: '양호', cls: 'badge-green' };
-  if (ratio >= 0.65) return { label: '주의', cls: 'badge-yellow' };
-  if (ratio >= 0.45) return { label: '위험', cls: 'badge-orange' };
+  if (ratio >= 0.75) return { label: '양호', cls: 'badge-green' }; 
+  if (ratio >= 0.60) return { label: '주의', cls: 'badge-yellow' };
+  if (ratio >= 0.35) return { label: '위험', cls: 'badge-orange' };
   return { label: '긴급', cls: 'badge-red' };
 }
 
@@ -1126,7 +1126,7 @@ function showResult() {
     </div>
 
     <div style="background:var(--white);padding:24px 20px;margin-top:24px;border-top:2px solid var(--gray-mid);border-bottom:2px solid var(--gray-mid);">
-      <div class="result-section-title" style="margin-bottom:14px;">💡 실제 이렇게 개선할 수 있어요</div>
+      <div class="result-section-title" style="margin-bottom:14px;">💡 이렇게 개선할 수 있어요</div>
       <div style="position:relative;overflow:hidden;border-radius:16px;">
         <div id="slide-wrap" style="display:flex;transition:transform 0.35s ease;will-change:transform;">
           <img src="https://i.ibb.co/H6vQLnQ/image-3.png" style="width:100%;flex-shrink:0;border-radius:16px;object-fit:cover;display:block;">
