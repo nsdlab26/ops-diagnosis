@@ -802,6 +802,16 @@ function goBackToQuestions() {
   window.scrollTo(0, 0);
 }
 
+let slideIdx = 0;
+function slideMove(dir) {
+  const total = 3;
+  slideIdx = (slideIdx + dir + total) % total;
+  document.getElementById('slide-wrap').style.transform = `translateX(-${slideIdx * 100}%)`;
+  document.querySelectorAll('#slide-dots span').forEach((d, i) => {
+    d.style.opacity = i === slideIdx ? '1' : '0.4';
+  });
+}
+
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(() => {
     const toast = document.getElementById('copy-toast');
@@ -843,7 +853,7 @@ function getGrade(score) {
 
 function calcLoss(members) {
   members = parseInt(members) || 1;
-  const hourlyWage = 30000;
+  const hourlyWage = 50000;
   const workDays = 240;
 
   const repeatMap = [0.4, 1.6, 3.2, 4.8];
@@ -990,7 +1000,7 @@ function showResult() {
           <span class="loss-value highlight">약 ${loss.annualWon.toLocaleString()}만원</span>
         </div>
       </div>
-      <p style="font-size:11px;color:var(--text-sub);padding:0 4px;line-height:1.5;">* 반복 업무 응답 기준, 시급 3만원 적용한 추정치예요.</p>
+      <p style="font-size:11px;color:var(--text-sub);padding:0 4px;line-height:1.5;">* 반복 수작업 기준, 시급 5만원 적용 / 자동화·시스템화로 절감 가능한 추정치예요.</p>
     </div>`
     : '';
 
@@ -1056,9 +1066,27 @@ function showResult() {
       <div class="improve-card">${weakHtml}</div>
     </div>
 
+    <div style="background:var(--white);padding:24px 20px;margin-top:24px;border-top:2px solid var(--gray-mid);border-bottom:2px solid var(--gray-mid);">
+      <div class="result-section-title" style="margin-bottom:14px;">💡 실제 이렇게 개선할 수 있어요</div>
+      <div style="position:relative;overflow:hidden;border-radius:16px;">
+        <div id="slide-wrap" style="display:flex;transition:transform 0.35s ease;will-change:transform;">
+          <img src="https://i.ibb.co/H6vQLnQ/image-3.png" style="width:100%;flex-shrink:0;border-radius:16px;object-fit:cover;display:block;">
+          <img src="https://i.ibb.co/QvGDFC3R/image-2.png" style="width:100%;flex-shrink:0;border-radius:16px;object-fit:cover;display:block;">
+          <img src="https://i.ibb.co/CsT4wKgc/dff-1.png" style="width:100%;flex-shrink:0;border-radius:16px;object-fit:cover;display:block;">
+        </div>
+        <button onclick="slideMove(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
+        <button onclick="slideMove(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
+        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;" id="slide-dots">
+          <span style="width:6px;height:6px;border-radius:50%;background:#fff;opacity:1;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#fff;opacity:0.4;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#fff;opacity:0.4;"></span>
+        </div>
+      </div>
+    </div>
+
     <div class="cta-wrap">
-      <div class="cta-title">30분으로 개선 구조를<br>같이 살펴볼게요</div>
-      <div class="cta-desc">진단 결과를 바탕으로 우리 조직에 맞는<br>운영 구조 제안서를 무료로 드려요.</div>
+      <div class="cta-title">진단 결과, 같이 풀어봐요</div>
+      <div class="cta-desc">어떻게 개선할 수 있을지<br>운영 구조 제안서를 무료로 드려요.</div>
       <a class="cta-btn" href="https://www.nsdlab.kr/ops_system" target="_blank">무료 미팅 신청하기 →</a>
       <div class="cta-sub">부담 없이 현황만 살펴봐도 괜찮아요 😊</div>
     </div>
