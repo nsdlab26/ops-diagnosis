@@ -423,7 +423,7 @@ src="https://www.facebook.com/tr?id=481154315744202&ev=PageView&noscript=1"
 
   .result-section { padding: 24px 20px 0; }
   .result-section-title {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--text-sub);
     letter-spacing: 1.5px;
@@ -487,7 +487,7 @@ src="https://www.facebook.com/tr?id=481154315744202&ev=PageView&noscript=1"
   .badge-red { background: #FEE2E2; color: #991B1B; }
 
   .part-comment {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-sub);
     line-height: 1.7;
   }
@@ -518,8 +518,20 @@ src="https://www.facebook.com/tr?id=481154315744202&ev=PageView&noscript=1"
     margin-top: 5px;
     box-shadow: 0 0 6px rgba(107,33,214,0.5);
   }
-  .improve-text strong { display: block; font-weight: 600; margin-bottom: 3px; color: var(--black); }
-  .improve-text span { color: var(--text-sub); }
+/* 1. 제목 (개선 항목 이름) */
+.improve-text strong { 
+  display: block; 
+  font-weight: 700; 
+  font-size: 15px;   /* <--- 여기에 크기 추가 (추천: 15px) */
+  margin-bottom: 3px; 
+  color: var(--black); 
+}
+
+/* 2. 내용 (상세 설명) */
+.improve-text span { 
+  font-size: 14px;   /* <--- 여기에 크기 추가 (추천: 14px) */
+  color: var(--text-sub); 
+}
 
   /* CTA */
   .cta-wrap {
