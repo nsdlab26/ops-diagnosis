@@ -949,6 +949,16 @@ function getWeakItems() {
 }
 
 // ── RENDER RESULT ────────────────────────────────────────
+function sendToGAS(payload) {
+  const gasUrl = "https://script.google.com/macros/s/AKfycbxwJUxprMEVSK8nyzJUknpBVboAIs-oWdyX3GTIsOlKxdjdV8--7o0g1XJukp4rLEE5aA/exec";
+  
+  fetch(gasUrl, {
+    method: 'POST',
+    mode: 'no-cors', // GAS 특유의 리다이렉트 이슈 방지
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+}
 
 function showResult() {
   const input = document.getElementById('members-input').value;
@@ -961,6 +971,17 @@ function showResult() {
   const score = calcScore();
   const grade = getGrade(score);
   const loss = calcLoss(members);
+ 
+ // [추가] 데이터 전송용 오브젝트 생성
+  const payload = {
+    score: score,
+    members: members,
+    lossWon: loss.annualWon,
+    answers: answers.map(a => a + 1) // 0~3 인덱스를 1~4번 선택지로 변환
+  };
+
+ // [추가] 함수 실행
+  sendToGAS(payload);
 
   const infoRatio = getPartScore([0, 4]);
   const effRatio = getPartScore([1, 2]);
