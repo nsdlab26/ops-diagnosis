@@ -922,8 +922,8 @@ function getPartScore(partQuestions) {
 }
 
 function partBadge(ratio) {
-  if (ratio >= 0.75) return { label: '양호', cls: 'badge-green' }; 
-  if (ratio >= 0.60) return { label: '주의', cls: 'badge-yellow' };
+  if (ratio >= 0.80) return { label: '양호', cls: 'badge-green' }; 
+  if (ratio >= 0.55) return { label: '주의', cls: 'badge-yellow' };
   if (ratio >= 0.35) return { label: '위험', cls: 'badge-orange' };
   return { label: '긴급', cls: 'badge-red' };
 }
