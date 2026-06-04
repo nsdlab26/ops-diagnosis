@@ -739,6 +739,19 @@ const questions = [
 let answers = new Array(7).fill(null);
 let currentQ = 0;
 
+ const slideImages = [
+  "https://i.ibb.co/4RnCyY46/fabad7379915d.png",
+  "https://i.ibb.co/ch2VGb43/f62f51300b6c4.png",
+  "https://i.ibb.co/4Z8NX5Qs/2ec719c46b78a.png",
+  "https://i.ibb.co/TB2NbMkW/4150538951764.png",
+  "https://i.ibb.co/nshcppCd/7a800b1f9fc59.png"
+];
+
+slideImages.forEach(url => {
+  const img = new Image();
+  img.src = url;
+});
+
 function startDiagnosis() {
   document.getElementById('screen-intro').classList.remove('active');
   document.getElementById('screen-questions').classList.add('active');
@@ -1110,23 +1123,23 @@ function showResult() {
   <div style="position:relative;overflow:hidden;border-radius:16px;background:#fafafa;"> <div id="slide-wrap" style="display:flex;transition:transform 0.35s ease;will-change:transform;align-items:center;">
       
       <div style="width:100%; flex-shrink:0; padding:40px 20px; box-sizing:border-box; display:flex; justify-content:center;">
-        <img src="https://i.ibb.co/4RnCyY46/fabad7379915d.png" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
+        <img src="https://i.ibb.co/4RnCyY46/fabad7379915d.png" loading="eager" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
       </div>
       
       <div style="width:100%; flex-shrink:0; padding:40px 20px; box-sizing:border-box; display:flex; justify-content:center;">
-        <img src="https://i.ibb.co/ch2VGb43/f62f51300b6c4.png" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
+        <img src="https://i.ibb.co/ch2VGb43/f62f51300b6c4.png" loading="eager" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
       </div>
 
       <div style="width:100%; flex-shrink:0; padding:40px 20px; box-sizing:border-box; display:flex; justify-content:center;">
-        <img src="https://i.ibb.co/4Z8NX5Qs/2ec719c46b78a.png" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
+        <img src="https://i.ibb.co/4Z8NX5Qs/2ec719c46b78a.png" loading="eager" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
       </div>
 
       <div style="width:100%; flex-shrink:0; padding:40px 20px; box-sizing:border-box; display:flex; justify-content:center;">
-        <img src="https://i.ibb.co/TB2NbMkW/4150538951764.png" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
+        <img src="https://i.ibb.co/TB2NbMkW/4150538951764.png" loading="eager" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
       </div>
 
       <div style="width:100%; flex-shrink:0; padding:40px 20px; box-sizing:border-box; display:flex; justify-content:center;">
-        <img src="https://i.ibb.co/nshcppCd/7a800b1f9fc59.png" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
+        <img src="https://i.ibb.co/nshcppCd/7a800b1f9fc59.png" loading="eager" style="width:auto; max-width:100%; max-height:400px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border:1px solid #e1e1e1; display:block; object-fit:contain;">
       </div>
 
     </div>
